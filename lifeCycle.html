@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CDN
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
+
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class Hi extends React.Component {
+            constructor(props) {
+                console.log("Initialization");
+                super(props);
+                this.state = {
+                    name: "Alex",
+                    age: "30"
+                }
+            }
+            componentWillMount() {
+                console.log("WillMount")
+            }
+            componentDidMount() {
+                console.log("DidMount");
+            }
+            update = () => {
+                this.setState({
+                    name: "Tim",
+                    age: "40"
+                })
+            }
+            shouldComponentUpdate() {
+                console.log("ComponentUpdate");
+                return true;
+            }
+            componentWillUpdate() {
+                console.log("WillUpdate");
+            }
+            componentDidUpdate() {
+                console.log("DidUpdate");
+            }
+            render() {
+                console.log("Updation");
+                return <div>
+                    <h1>Hello, {this.state.name}</h1>
+                    <p>Age: {this.state.age}</p>
+                    <button onClick={this.update}>UpDate</button>
+                </div>
+            }
+        }
+        ReactDOM.render(
+            <Hi />
+            , document.querySelector("div"));
+    </script>
+</body>
+
+</html>
