@@ -5,56 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- CDN
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
-
-    <script src="../node_modules/react/umd/react.development.js"></script>
-    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="./node_modules/babel-standalone/babel.min.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app"></div>
     <script type="text/babel">
-        class List extends React.Component {
-            state = {
-                // list: [1, 2, 3, 4, 5]
-                list: [
-                    { id: 1, text: "a" },
-                    { id: 2, text: "aa" },
-                    { id: 3, text: "aaa" },
-                    { id: 4, text: "aaaa" },
-                    { id: 5, text: "aaaaa" }]
+        // map
+        // let obj = {
+        //     Id: 1,
+        //     Name: "Alex",
+        //     Sex: "male"
+        // };
+        // let myDom = <div>
+        //     {Object.keys(obj).map((item, i) => {
+        //         return (<p key={i}>{item} : {obj[item]}</p>)
+        //     })}
+        // </div>
+        // ReactDOM.render(myDom, document.getElementById("app"));
 
-            }
+        // for loop
+        // let arr = [
+        //         { id: 1, text: "a" },
+        //         { id: 2, text: "aa" },
+        //         { id: 3, text: "aaa" },
+        //         { id: 4, text: "aaaa" },
+        //         { id: 5, text: "aaaaa" }]
+        // function myDom() {
+        //         let newArr = [];
+        //         for (let i = 0; i < arr.length; i++) {
+        //             newArr.push(<p key={arr[i].id}>{arr[i].text}</p>);
+        //         }
+        //         return newArr;
+        //     }
+        // ReactDOM.render(myDom(), document.getElementById("app"));
 
-            render() {
-                const arr = this.state.list;
-                const listItem = [];
-
-                // map
-                // arr.map((item) => {
-                //     let li = <li>{item}</li>
-                //     listItem.push(li);
-                // })
-
-                // for loop
-                for (let i = 0; i < arr.length; i++) {
-                        let li = <li key="arr[i].id">{arr[i].text}</li>
-                        listItem.push(li);
-                    }
-                return <div>
-                    <ul>
-                        {listItem}
-                    </ul>
-                </div>
-            }
+        let arr = ["Eat", "Sleep", "Study"];
+        let index = -1;
+        function done() {
+            let myDom = arr.map((item, i) => {
+                return (<p style={{ color: i === index ? "red" : "" }} key={i} onClick={() => { index = i; render() }}>{item}</p>);
+            });
+            return myDom;
         }
-        ReactDOM.render(
-            <List />
-            , document.querySelector("div"));
+        function render() {
+            ReactDOM.render(done(), document.getElementById("app"));
+        };
+        render();
     </script>
 </body>
 

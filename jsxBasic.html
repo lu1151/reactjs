@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="./node_modules/babel-standalone/babel.min.js"></script>
+    <style>
+        .demo {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // Ternary Operator
+        // let phone = 499;
+        // let myDom =
+        //     <div>
+        //         The phone is ${phone} and it's {phone > 500 ? "expensive" : "cheap"}.
+        //     </div>;
+
+        // Render Array
+        // var arr = [
+        //     <p>1</p>,
+        //     <p>2</p>,
+        //     <p>3</p>,
+        //     <p>4</p>,
+        //     <p>5</p>
+        // ];
+        // let myDom =
+        //     <div>
+        //         {arr}
+        //     </div>;
+
+        // Attribute Change
+        // let text = "Go to google";
+        // let link = "http://google.com";
+        // let myDom = <a href={link}>{text}</a>;
+
+        // Style Change
+        // let style1 = {
+        //     color: "red",
+        //     backgroundColor: "pink"
+        // }
+        // let myDom = <a style={style1}>Style Change</a>
+
+        // Class Change
+        let myDom = <a className="demo">Style Change</a>
+
+        ReactDOM.render(myDom, document.getElementById("app"));
+    </script>
+</body>
+
+</html>

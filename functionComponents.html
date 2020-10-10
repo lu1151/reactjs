@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="./node_modules/babel-standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // function MyCom() {
+        //     return (
+        //         <div>Function Component</div>
+        //     )
+        // }
+        // let myCom = <div>
+        //     <MyCom />
+        //     <MyCom></MyCom>
+        // </div>
+        // ReactDOM.render(myCom, document.getElementById("app"));
+
+        // Parent-Child Component
+        function MyCom1() {
+            return (
+                <p>Component 1</p>
+            )
+        }
+        function MyCom2() {
+            return (
+                <p>Component 2</p>
+            )
+        }
+
+        function MyCom3() {
+            return (
+                <p>Component 3</p>
+            )
+        }
+        function MyCom4() {
+            return (
+                <p>Component 4</p>
+            )
+        }
+        function MyCom() {
+            return (<div>
+                <MyCom1 />
+                <MyCom2 />
+                <MyCom3 />
+                <MyCom4 />
+            </div>
+            )
+        }
+        let myCom = <div>
+            <MyCom />
+        </div>
+        ReactDOM.render(myCom, document.getElementById("app"));
+    </script>
+</body>
+
+</html>

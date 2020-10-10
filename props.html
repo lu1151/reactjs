@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="./node_modules/babel-standalone/babel.min.js"></script>
+    <script src="./node_modules/prop-types/prop-types.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // // Function Component
+        // function Com(props) {
+        //     return (
+        //         <div>Function Component text:{props.text}, {props.num}</div>
+        //     )
+        // }
+        // Com.defaultProps = {
+        //     text: "This is the text in obj",
+        //     num: "This is the num in obj"
+        // }
+
+        // // Class Component
+        // class Com extends React.Component {
+        //     static defaultProps = {
+        //         text: "This is the text in obj",
+        //         num: "This is the num in obj"
+        //     }
+        //     render() {
+        //         return (
+        //             <div>Class Component: {this.props.text}, {this.props.num}, {this.props.age}</div>
+        //         )
+        //     }
+        // }
+
+        // // Typechecking With PropTypes
+        // Com.propTypes = {
+        //     text: PropTypes.string.isRequired,
+        //     num: PropTypes.number,
+        //     age: PropTypes.any.isRequired,
+        // }
+
+        let bool = true;
+        let MyCom = (props) => {
+            return (
+                <div style={{ display: bool ? "block" : "none" }}>
+                    {
+                        props.arr.map((v, i) => {
+                            return <p>{v}</p>
+                        })
+                    }
+                </div>
+            )
+        }
+        let dataArr = ["Alex", "Adam", "Ada"];
+        let Com = () => {
+            return (
+                <div onClick={() => { bool = !bool; fun() }}>
+                    Parent Component
+                    <MyCom arr={dataArr} />
+                </div>
+            )
+        }
+
+        function fun() {
+            ReactDOM.render(<Com />, document.getElementById("app"));
+        }
+        fun();
+    </script>
+</body>
+
+</html>
